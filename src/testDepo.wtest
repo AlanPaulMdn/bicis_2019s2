@@ -1,0 +1,45 @@
+import bicis.*
+import accesorios.*
+import deposito.*
+
+
+test "Depo 3 bicis, 2 bicis" {
+
+	const bici1 = new Bici()
+	bici1.rodado(28)
+	bici1.largo(150)
+	bici1.marca("Olmo")
+	bici1.accesorios([farolito])
+	
+	const bici2 = new Bici()
+	bici2.rodado(26)
+	bici2.largo(110)
+	bici2.marca("Legnano")
+	canasto.volumen(8)
+	morral.largo(21)
+	morral.tieneOjoDeGato(true)
+	bici2.accesorios([farolito, canasto, morral])
+	
+	const bici3 = new Bici()
+	bici3.rodado(20)
+	bici3.largo(90)
+	bici3.marca("Legnano")
+	morral.largo(6)
+	morral.tieneOjoDeGato(false)
+	bici3.accesorios([morral])
+	
+	const depo1 = new Deposito()
+	depo1.bicis([bici1,bici2,bici3])
+	
+	
+	assert.equals([bici1,bici2],depo1.bicisRapidas())
+	assert.equals(#{"Olmo","Legnano"},depo1.marcas())
+	assert.notThat(depo1.esNocturno())
+	assert.that(depo1.tieneBiciParaLlevar(10))
+	assert.notThat(depo1.tieneBiciParaLlevar(50))
+	
+	const depo2 = new Deposito()
+	depo2.bicis([bici1,bici2])
+	assert.that(depo2.esNocturno())
+	
+}
