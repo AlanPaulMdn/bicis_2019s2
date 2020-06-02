@@ -2,11 +2,7 @@ import bicis.*
 import accesorios.*
 
 test "Ejemplo 1" {
-	const bici1 = new Bici()
-	bici1.rodado(28)
-	bici1.largo(150)
-	bici1.marca("Olmo")
-	bici1.accesorios([farolito])
+	const bici1 = new Bici(rodado=28, largo=150, marca="Olmo",accesorios=[farolito])
 	
 	assert.equals(85, bici1.altura())
 	assert.equals(34, bici1.velCrucero())
@@ -18,14 +14,11 @@ test "Ejemplo 1" {
 }
 
 test "Ejemplo 2" {
-	const bici2 = new Bici()
-	bici2.rodado(26)
-	bici2.largo(110)
-	bici2.marca("Legnano")
+	const bici2 = new Bici(rodado=26, largo=110, marca="Legnano",accesorios=[farolito, canasto, morral])
 	canasto.volumen(8)
 	morral.largo(21)
 	morral.tieneOjoDeGato(true)
-	bici2.accesorios([farolito, canasto, morral])
+
 	
 	assert.equals(80, bici2.altura())
 	assert.equals(28, bici2.velCrucero())
@@ -37,13 +30,10 @@ test "Ejemplo 2" {
 }
 
 test "Ejemplo 3" {
-	const bici3 = new Bici()
-	bici3.rodado(20)
-	bici3.largo(90)
-	bici3.marca("Legnano")
+	const bici3 = new Bici(rodado=20, largo=90, marca="Legnano", accesorios=[morral])
 	morral.largo(6)
 	morral.tieneOjoDeGato(false)
-	bici3.accesorios([morral])
+
 	
 	assert.equals(65, bici3.altura())
 	assert.equals(22, bici3.velCrucero())

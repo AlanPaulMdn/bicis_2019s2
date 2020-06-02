@@ -1,5 +1,5 @@
 class Deposito {
-	var property bicis
+	const property bicis = []
 	
 	method bicisRapidas()= bicis.filter({bici => bici.velCrucero() > 25 })
 	method marcas()= bicis.map({bici => bici.marca()}).asSet()
